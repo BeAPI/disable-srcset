@@ -1,0 +1,13 @@
+{
+  "name": "bea/disable-srcset",
+  "description": "This plugin removes the feature 'Responsive Images' introduced in WordPress 4.4",
+  "minimum-stability": "stable",
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "BeAPI",
+      "email": "technique@beapi.fr"
+    }
+  ],
+  "type": "wordpress-muplugin"
+}
