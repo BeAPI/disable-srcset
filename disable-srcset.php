@@ -13,20 +13,24 @@
  */
 
 // Clean the up the image from wp_get_attachment_image()
-if( !class_exists('BEA_Images') ){
-	add_filter( 'wp_get_attachment_image_attributes', 'bea_remove_srcset', PHP_INT_MAX, 1 );
-	function bea_remove_srcset( $attr ) {
-		if ( isset( $attr['sizes'] ) ) {
-			unset( $attr['sizes'] );
-		}
-	
-		if ( isset( $attr['srcset'] ) ) {
-			unset( $attr['srcset'] );
-		}
-	
+add_filter( 'wp_get_attachment_image_attributes', 'bea_remove_srcset', PHP_INT_MAX, 1 );
+function bea_remove_srcset( $attr ) {
+	if ( ! class_exists( 'BEA_Images' ) ) {
 		return $attr;
 	}
+
+
+	if ( isset( $attr['sizes'] ) ) {
+		unset( $attr['sizes'] );
+	}
+
+	if ( isset( $attr['srcset'] ) ) {
+		unset( $attr['srcset'] );
+	}
+
+	return $attr;
 }
+
 // Override the calculated image sizes
 add_filter( 'wp_calculate_image_sizes', '__return_false', PHP_INT_MAX );
 
