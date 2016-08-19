@@ -15,7 +15,7 @@
 // Clean the up the image from wp_get_attachment_image()
 add_filter( 'wp_get_attachment_image_attributes', 'bea_remove_srcset', PHP_INT_MAX, 1 );
 function bea_remove_srcset( $attr ) {
-	if ( ! class_exists( 'BEA_Images' ) ) {
+	if ( class_exists( 'BEA_Images' ) ) {
 		return $attr;
 	}
 
